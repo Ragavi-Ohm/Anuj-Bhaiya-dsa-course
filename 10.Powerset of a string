@@ -1,0 +1,20 @@
+vector<vector<int> > subsets(vector<int>& A)
+    {
+        //code here
+        vector<vector<int>>v1;
+        int n=A.size();
+        int num=(1<<n)-1;
+        for(int i=0;i<=num;i++)
+        {
+            vector<int>v;
+            for(int j=0;j<=n-1;j++)
+            {
+                if((i & (1<<j)))
+                v.push_back(A[j]);
+            }
+            v1.push_back(v);
+            v.clear();
+        }
+        sort(v1.begin(),v1.end());
+        return v1;
+    }
